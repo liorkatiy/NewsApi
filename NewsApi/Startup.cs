@@ -67,6 +67,7 @@ namespace NewsApi
                 app.UseExceptionHandler("/Error");
                 app.UseHsts();
             }
+
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
@@ -78,6 +79,8 @@ namespace NewsApi
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseCors("AllowedOrigins");
 
             app.UseEndpoints(endpoints =>
             {

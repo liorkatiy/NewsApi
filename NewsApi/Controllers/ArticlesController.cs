@@ -24,9 +24,9 @@ namespace NewsApi.Controllers
 
         [Route("/articles/source")]
         [HttpGet]
-        public async Task<IEnumerable<Article>> GetArticleBySource([FromQuery] string author)
+        public async Task<IEnumerable<Article>> GetArticleBySource([FromQuery] string source)
         {
-            return await _repositoryManager.GetArticleBySource(author);
+            return await _repositoryManager.GetArticleBySource(source);
         }
 
         [Route("/articles")]
@@ -36,11 +36,11 @@ namespace NewsApi.Controllers
             return await _repositoryManager.GetRecent(amount);
         }
 
-        [Route("/articles/search")]
+        [Route("/articles/content")]
         [HttpGet]
-        public async Task<IEnumerable<Article>> GetLatestArticlesByContent([FromQuery] string search, [FromQuery] int amount = 10)
+        public async Task<IEnumerable<Article>> GetLatestArticlesByContent([FromQuery] string content, [FromQuery] int amount = 10)
         {
-            return await _repositoryManager.GetLatestArticlesByContent(search, amount);
+            return await _repositoryManager.GetLatestArticlesByContent(content, amount);
         }
     }
 }
